@@ -7,11 +7,6 @@ public class Contenedor {
     private List<Asesoria> asesorias;
     private List<Capacitacion> capacitaciones;
 
-    public Contenedor(List<Asesoria> asesorias, List<Capacitacion> capacitaciones) {
-        this.asesorias = asesorias;
-        this.capacitaciones = capacitaciones;
-    }
-
     public Contenedor() {
         asesorias = new ArrayList<>();
         capacitaciones = new ArrayList<>();
@@ -45,6 +40,11 @@ public class Contenedor {
         }
     }
 
+    public List<Capacitacion> getCapacitaciones() {
+        return capacitaciones;
+    }
+
+    
     public void listarUsuarios() {
         for (Asesoria asesoria : asesorias) {
             if (asesoria instanceof Usuario) {
@@ -62,6 +62,7 @@ public class Contenedor {
         }
     }
 
+    
     public void listarCapacitaciones() {
         for (Capacitacion capacitacion : capacitaciones) {
             System.out.println(capacitacion.toString());
@@ -69,18 +70,13 @@ public class Contenedor {
             for (Asesoria asesoria : asesorias) {
                 if (asesoria instanceof Cliente) {
                     Cliente cliente = (Cliente) asesoria;
-                    if (cliente.getRut() == rutCliente) {  // Corregir el uso de getRut()
+                    if (cliente.getRut() == rutCliente) {
                         System.out.println(cliente.toString());
                         break;
                     }
                 }
             }
         }
-    }
-
-
-    public void eliminarCapacitacion(int idEliminar) {
-        // TODO: Implement code to remove capacitacion from the list
     }
 
     public List<Usuario> getUsuarios() {
@@ -92,5 +88,18 @@ public class Contenedor {
         }
         return usuarios;
     }
+    public Cliente getClientePorRut(int rut) {
+        for (Asesoria asesoria : asesorias) {
+            if (asesoria instanceof Cliente) {
+                Cliente cliente = (Cliente) asesoria;
+                if (cliente.getRut() == rut) {
+                    return cliente;
+                }
+            }
+        }
+        return null; // Retorna null si no se encuentra el cliente
+    }
 }
+
+
 

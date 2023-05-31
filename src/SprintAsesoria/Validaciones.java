@@ -1,5 +1,8 @@
 package SprintAsesoria;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
+
 public class Validaciones {
 
     public static boolean validarCampoTexto(String texto, int longitudMinima, int longitudMaxima) {
@@ -192,7 +195,27 @@ public class Validaciones {
 
         return false;
     }
+
+
+public static boolean validarDiaCapacitacion(String dia) {
+    String[] diasPermitidos = { "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo" };
+    for (String diaPermitido : diasPermitidos) {
+        if (dia.equalsIgnoreCase(diaPermitido)) {
+            return true;
+        }
+    }
+    return false;
 }
+
+public static boolean validarHoraCapacitacion(String hora) {
+    try {
+        LocalTime.parse(hora);
+        return true;
+    } catch (DateTimeParseException e) {
+        return false;
+    }
+}}
+
 
 
 

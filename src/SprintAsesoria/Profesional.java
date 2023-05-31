@@ -13,7 +13,6 @@ public class Profesional extends Usuario {
         this.titulo = titulo;
         this.fechaIngreso = fechaIngreso;
     }
-    
 
     // Getter y setter para titulo y fechaIngreso
 
@@ -44,11 +43,13 @@ public class Profesional extends Usuario {
         return aniosExperiencia;
     }
 
-    // Implementación del método analizarUsuario() de la clase padre Usuario
+    // Implementación del método analizarUsuario() de la clase Usuario
     @Override
     public void analizarUsuario() {
         super.analizarUsuario();
         System.out.println("Título: " + titulo);
         System.out.println("Años de experiencia: " + obtenerAniosExperiencia());
+        System.out.println(mostrarEdad());
     }
 }
+

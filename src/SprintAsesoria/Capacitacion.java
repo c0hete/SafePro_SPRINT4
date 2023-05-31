@@ -1,63 +1,70 @@
 package SprintAsesoria;
 
 public class Capacitacion {
+    private static int contadorIdentificador = 1;
+    private int identificador;
     private int rutCliente;
-    private String nombre;
-    private String fecha;
-    private int duracion;
-    private int cupos;
-    private int cuposDisponibles;
+    private String dia;
+    private String hora;
+    private String lugar;
+    private String duracion;
+    private int cantidadAsistentes;
 
-    public Capacitacion(int rutCliente, String nombre, String fecha, int duracion, int cupos) {
+    public Capacitacion(int rutCliente, String dia, String hora, String lugar, String duracion, int cantidadAsistentes) {
+        this.identificador = generarIdentificador();
         this.rutCliente = rutCliente;
-        this.nombre = nombre;
-        this.fecha = fecha;
+        this.dia = dia;
+        this.hora = hora;
+        this.lugar = lugar;
         this.duracion = duracion;
-        this.cupos = cupos;
-        this.cuposDisponibles = cupos;
+        this.cantidadAsistentes = cantidadAsistentes;
+    }
+
+    public int getIdentificador() {
+        return identificador;
     }
 
     public int getRutCliente() {
         return rutCliente;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDia() {
+        return dia;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getHora() {
+        return hora;
     }
 
-    public int getDuracion() {
+    public String getLugar() {
+        return lugar;
+    }
+
+    public String getDuracion() {
         return duracion;
     }
 
-    public int getCupos() {
-        return cupos;
+    public int getCantidadAsistentes() {
+        return cantidadAsistentes;
     }
 
-    public int getCuposDisponibles() {
-        return cuposDisponibles;
+    private static int generarIdentificador() {
+        int identificador = contadorIdentificador;
+        contadorIdentificador++;
+        return identificador;
     }
-
-    public void reducirCupo() {
-        if (cuposDisponibles > 0) {
-            cuposDisponibles--;
-        }
-    }
-
-    // Otros métodos de la clase
 
     @Override
     public String toString() {
         return "Capacitacion{" +
-                "rutCliente='" + rutCliente + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", duracion=" + duracion +
-                ", cupos=" + cupos +
-                ", cuposDisponibles=" + cuposDisponibles +
+                "identificador=" + identificador +
+                ", rutCliente=" + rutCliente +
+                ", dia='" + dia + '\'' +
+                ", hora='" + hora + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", duracion='" + duracion + '\'' +
+                ", cantidadAsistentes=" + cantidadAsistentes +
                 '}';
     }
 }
+
