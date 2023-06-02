@@ -85,7 +85,7 @@ import java.time.format.DateTimeFormatter;
 	                            nombre = scanner.nextLine();
 	                            
 	                            // Validar el Nombre del Cliente
-	                            if (!Validaciones.validarCampoTexto(nombre, 1, 50)) {
+	                            if (!Validaciones.validarCampoTexto(nombre, 5, 50)) {
 	                                System.out.println("Nombre inválido. Por favor, ingrese un nombre válido.");
 	                            } else {
 	                                campoActual++; // Pasar al siguiente campo
@@ -219,7 +219,19 @@ import java.time.format.DateTimeFormatter;
 
 	                while (!ingresoCorrecto2) {
 	                    switch (campoActual2) {
-	                        case 1:
+	                    case 1:
+                            // Solicitar el Nombre del Cliente al usuario
+                            System.out.print("Ingrese el Nombre del Profesional: ");
+                            nombreProfesional = scanner.nextLine();
+                            
+                            // Validar el Nombre del Cliente
+                            if (!Validaciones.validarCampoTexto(nombreProfesional, 5, 50)) {
+                                System.out.println("Nombre inválido. Por favor, ingrese un nombre válido.");
+                            } else {
+                                campoActual2++; // Pasar al siguiente campo
+                            }
+                            break;
+	                        case 2:
 	                            // Solicitar el Rut del Profesional al usuario
 	                            System.out.print("Ingrese el Rut del Profesional: ");
 	                            String rutProfesionalStr = scanner.nextLine();
@@ -233,7 +245,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 2:
+	                        case 3:
 	                            // Solicitar la Fecha de Nacimiento del Profesional al usuario
 	                            System.out.print("Ingrese la Fecha de Nacimiento del Profesional (formato: DD/MM/AAAA): ");
 	                            String fechaNacimientoProfesionalStr = scanner.nextLine();
@@ -251,7 +263,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 3:
+	                        case 4:
 	                            // Solicitar el Título del Profesional al usuario
 	                            System.out.print("Ingrese el Título del Profesional: ");
 	                            titulo = scanner.nextLine();
@@ -264,7 +276,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 4:
+	                        case 5:
 	                            // Solicitar la Fecha de Ingreso del Profesional al usuario
 	                            System.out.print("Ingrese la Fecha de Ingreso del Profesional (formato: DD/MM/AAAA): ");
 	                            String fechaIngresoStr = scanner.nextLine();
