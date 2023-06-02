@@ -1,4 +1,13 @@
+/**
+ * Esta es la clase principal que contiene el punto de entrada del programa.
+ * Realiza la gestión de usuarios y capacitaciones.
+ * @author José Alvarado
+ * @author Matias Marquez
+ * @author Carlos Yañez
+ * @author Alejandro Zamora
+ */
 	package SprintAsesoria;
+	
 	
 	import java.time.LocalDate;
 import java.time.LocalTime;

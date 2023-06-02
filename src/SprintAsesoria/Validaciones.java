@@ -1,3 +1,7 @@
+/**
+ * Esta clase contiene métodos de validación útiles para diferentes tipos de datos.
+ * Proporciona métodos para validar números enteros, fechas, nombres, RUT, etc.
+ */
 package SprintAsesoria;
 
 import java.time.LocalTime;

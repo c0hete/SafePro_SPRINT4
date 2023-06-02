@@ -1,3 +1,7 @@
+/**
+ * Esta clase representa a un cliente.
+ * Hereda de la clase Usuario y agrega información adicional como apellido, dirección y sistema de salud.
+ */
 package SprintAsesoria;
 
 import java.time.LocalDate;

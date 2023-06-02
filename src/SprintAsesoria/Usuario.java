@@ -1,3 +1,7 @@
+/**
+ * Esta clase representa a un usuario genérico.
+ * Contiene información básica como el nombre, rut y fecha de nacimiento del usuario.
+ */
 package SprintAsesoria;
 
 import java.time.LocalDate;

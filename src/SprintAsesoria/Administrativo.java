@@ -1,3 +1,7 @@
+/**
+ * Esta clase representa a un administrativo.
+ * Hereda de la clase Usuario y agrega información adicional como área y experiencia previa.
+ */
 package SprintAsesoria;
 
 import java.time.LocalDate;

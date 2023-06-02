@@ -1,3 +1,7 @@
+/**
+ * Esta clase representa a un profesional.
+ * Hereda de la clase Usuario y agrega información adicional como título y fecha de ingreso.
+ */
 package SprintAsesoria;
 
 import java.time.LocalDate;

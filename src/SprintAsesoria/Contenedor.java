@@ -1,3 +1,7 @@
+/**
+ * Esta clase actúa como un contenedor para almacenar y gestionar usuarios y capacitaciones.
+ * Proporciona métodos para almacenar, eliminar y listar usuarios, así como también para almacenar y listar capacitaciones.
+ */
 package SprintAsesoria;
 
 import java.util.ArrayList;
