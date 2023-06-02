@@ -44,7 +44,16 @@ public class Contenedor {
         return capacitaciones;
     }
 
-    
+    public List<Usuario> getUsuariosPorTipo(String tipo) {
+        List<Usuario> usuariosPorTipo = new ArrayList<>();
+        for (Asesoria asesoria : asesorias) {
+            if (asesoria.getClass().getSimpleName().equalsIgnoreCase(tipo) && asesoria instanceof Usuario) {
+                usuariosPorTipo.add((Usuario) asesoria);
+            }
+        }
+        return usuariosPorTipo;
+    }
+
     public void listarUsuarios() {
         for (Asesoria asesoria : asesorias) {
             if (asesoria instanceof Usuario) {
@@ -55,14 +64,12 @@ public class Contenedor {
     }
 
     public void listarUsuariosPorTipo(String tipo) {
-        for (Asesoria asesoria : asesorias) {
-            if (asesoria.getClass().getSimpleName().equalsIgnoreCase(tipo)) {
-                System.out.println(asesoria.toString());
-            }
+        List<Usuario> usuariosPorTipo = getUsuariosPorTipo(tipo);
+        for (Usuario usuario : usuariosPorTipo) {
+            System.out.println(usuario.toString());
         }
     }
 
-    
     public void listarCapacitaciones() {
         for (Capacitacion capacitacion : capacitaciones) {
             System.out.println(capacitacion.toString());
@@ -88,6 +95,7 @@ public class Contenedor {
         }
         return usuarios;
     }
+
     public Cliente getClientePorRut(int rut) {
         for (Asesoria asesoria : asesorias) {
             if (asesoria instanceof Cliente) {

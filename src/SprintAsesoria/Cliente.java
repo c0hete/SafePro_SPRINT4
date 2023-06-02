@@ -97,18 +97,15 @@ public class Cliente extends Usuario {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nombre='" + getNombre() + '\'' +
-                ", rut=" + getRut() +
-                ", fechaNacimiento=" + getFechaNacimiento() +
-                ", telefono='" + telefono + '\'' +
-                ", afp='" + afp + '\'' +
-                ", esFonasa=" + esFonasa +
-                ", direccion='" + direccion + '\'' +
-                ", comuna='" + comuna + '\'' +
-                ", apellido='" + apellido + '\'' +
-                '}';
+        return "Cliente\n" +
+                "Rut: " + getRut() + "\n" +
+                "Nombre: " + getNombre() + "\n" +
+                "Apellido: " + getApellido() + "\n" +
+                "Fecha de Nacimiento: " + getFechaNacimiento() + "\n" +
+                "Edad: " + mostrarEdad() + "\n" +
+                "Dirección: " + getDireccion() + "\n" +
+                "Comuna: " + getComuna() + "\n" +
+                "Sistema de Salud: " + (isEsFonasa() ? "Fonasa" : "Isapre") + "\n------";
     }
 }
-
 

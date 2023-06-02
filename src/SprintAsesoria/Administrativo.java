@@ -11,6 +11,17 @@ public class Administrativo extends Usuario {
         this.area = area;
         this.experienciaPrevia = experienciaPrevia;
     }
+    
+    @Override
+    public String toString() {
+        return "Administrativo\n" +
+                "Rut: " + getRut() + "\n" +
+                "Nombre: " + getNombre() + "\n" +
+                "Fecha de Nacimiento: " + getFechaNacimiento() + "\n" +
+                "Edad: " + mostrarEdad() + "\n" +
+                "Título: " + getArea() + "\n" +
+                "Fecha de Ingreso: " + getExperienciaPrevia() + "\n------";
+    }
 
     public String getArea() {
         return area;

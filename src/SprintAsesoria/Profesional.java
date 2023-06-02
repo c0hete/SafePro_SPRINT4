@@ -13,6 +13,17 @@ public class Profesional extends Usuario {
         this.titulo = titulo;
         this.fechaIngreso = fechaIngreso;
     }
+    @Override
+    public String toString() {
+        return "Profesional\n" +
+                "Rut: " + getRut() + "\n" +
+                "Nombre: " + getNombre() + "\n" +
+                "Fecha de Nacimiento: " + getFechaNacimiento() + "\n" +
+                "Edad: " + mostrarEdad() + "\n" +
+                "Título: " + getTitulo() + "\n" +
+                "Fecha de Ingreso: " + getFechaIngreso() + "\n------";
+    }
+
 
     // Getter y setter para titulo y fechaIngreso
 
@@ -51,5 +62,7 @@ public class Profesional extends Usuario {
         System.out.println("Años de experiencia: " + obtenerAniosExperiencia());
         System.out.println(mostrarEdad());
     }
+    
 }
+
 

@@ -220,7 +220,7 @@ import java.time.format.DateTimeFormatter;
 	                while (!ingresoCorrecto2) {
 	                    switch (campoActual2) {
 	                    case 1:
-                            // Solicitar el Nombre del Cliente al usuario
+                            // Solicitar el Nombre del Profesional al usuario
                             System.out.print("Ingrese el Nombre del Profesional: ");
                             nombreProfesional = scanner.nextLine();
                             
@@ -319,7 +319,19 @@ import java.time.format.DateTimeFormatter;
 
 	                while (!ingresoCorrecto3) {
 	                    switch (campoActual3) {
-	                        case 1:
+	                    case 1:
+                            // Solicitar el Nombre del Cliente al usuario
+                            System.out.print("Ingrese el Nombre del Administativo: ");
+                            nombreAdministrativo = scanner.nextLine();
+                            
+                            // Validar el Nombre del Cliente
+                            if (!Validaciones.validarCampoTexto(nombreAdministrativo, 5, 50)) {
+                                System.out.println("Nombre inválido. Por favor, ingrese un nombre válido.");
+                            } else {
+                                campoActual3++; // Pasar al siguiente campo
+                            }
+                            break;
+	                        case 2:
 	                            // Solicitar el Rut del Administrativo al usuario
 	                            System.out.print("Ingrese el Rut del Administrativo: ");
 	                            String rutAdministrativoStr = scanner.nextLine();
@@ -333,7 +345,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 2:
+	                        case 3:
 	                            // Solicitar la Fecha de Nacimiento del Administrativo al usuario
 	                            System.out.print("Ingrese la Fecha de Nacimiento del Administrativo (formato: DD/MM/AAAA): ");
 	                            String fechaNacimientoAdministrativoStr = scanner.nextLine();
@@ -351,7 +363,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 3:
+	                        case 4:
 	                            // Solicitar el Área del Administrativo al usuario
 	                            System.out.print("Ingrese el Área del Administrativo: ");
 	                            area = scanner.nextLine();
@@ -364,7 +376,7 @@ import java.time.format.DateTimeFormatter;
 	                            }
 	                            break;
 
-	                        case 4:
+	                        case 5:
 	                            // Solicitar la Experiencia previa del Administrativo al usuario
 	                            System.out.print("Ingrese la Experiencia previa del Administrativo: ");
 	                            experienciaPrevia = scanner.nextLine();
@@ -559,9 +571,51 @@ import java.time.format.DateTimeFormatter;
 	                    // Solicitar el tipo de usuario a listar
 	                    System.out.print("Ingrese el tipo de Usuario a listar (Cliente, Profesional, Administrativo): ");
 	                    String tipoUsuario = scanner.nextLine();
-	                    // Listar los usuarios del tipo especificado
-	                    contenedor.listarUsuariosPorTipo(tipoUsuario);
+	                    
+	                    // Obtener la lista de usuarios del tipo especificado
+	                    List<Usuario> usuariosTipo = contenedor.getUsuariosPorTipo(tipoUsuario);
+
+	                    // Verificar si se encontraron usuarios del tipo especificado
+	                    if (usuariosTipo.isEmpty()) {
+	                        System.out.println("No hay usuarios del tipo especificado.");
+	                    } else {
+	                        System.out.println("----- LISTA DE USUARIOS " + tipoUsuario.toUpperCase() + " -----");
+	                        for (Usuario usuario : usuariosTipo) {
+	                            // Imprimir los datos del usuario según su tipo
+	                            if (usuario instanceof Cliente) {
+	                                Cliente clienteUsuario = (Cliente) usuario;
+	                                System.out.println("Rut: " + clienteUsuario.getRut());
+	                                System.out.println("Nombre: " + clienteUsuario.getNombre());
+	                                System.out.println("Apellido: " + clienteUsuario.getApellido());
+	                                System.out.println("Fecha de Nacimiento: " + clienteUsuario.getFechaNacimiento());
+	                                System.out.println("Edad: " + clienteUsuario.mostrarEdad());
+	                                System.out.println("Dirección: " + clienteUsuario.getDireccion());
+	                                System.out.println("Comuna: " + clienteUsuario.getComuna());
+	                                System.out.println("Sistema de Salud: " + (clienteUsuario.isEsFonasa() ? "Fonasa" : "Isapre"));
+	                                System.out.println("------");
+	                            } else if (usuario instanceof Profesional) {
+	                                Profesional profesionalUsuario = (Profesional) usuario;
+	                                System.out.println("Rut: " + profesionalUsuario.getRut());
+	                                System.out.println("Nombre: " + profesionalUsuario.getNombre());
+	                                System.out.println("Fecha de Nacimiento: " + profesionalUsuario.getFechaNacimiento());
+	                                System.out.println("Edad: " + profesionalUsuario.mostrarEdad());
+	                                System.out.println("Título: " + profesionalUsuario.getTitulo());
+	                                System.out.println("Fecha de Ingreso: " + profesionalUsuario.getFechaIngreso());
+	                                System.out.println("------");
+	                            } else if (usuario instanceof Administrativo) {
+	                                Administrativo administrativoUsuario = (Administrativo) usuario;
+	                                System.out.println("Rut: " + administrativoUsuario.getRut());
+	                                System.out.println("Nombre: " + administrativoUsuario.getNombre());
+	                                System.out.println("Fecha de Nacimiento: " + administrativoUsuario.getFechaNacimiento());
+	                                System.out.println("Edad: " + administrativoUsuario.mostrarEdad());
+	                                System.out.println("Título: " + administrativoUsuario.getArea());
+	                                System.out.println("Fecha de Ingreso: " + administrativoUsuario.getExperienciaPrevia());
+	                                System.out.println("------");
+	                            }
+	                        }
+	                    }
 	                    break;
+
 	                case 8:
 	                    List<Capacitacion> capacitacionesList = contenedor.getCapacitaciones();
 	                    if (capacitacionesList.isEmpty()) {
